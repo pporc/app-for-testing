@@ -1,0 +1,30 @@
+extends layout
+
+block main
+  div(class="text-center")
+    h2=name
+  div(class="row justify-content-center")
+    form(name="createTest" action='/create' method="post" class="col-6 block")
+      input(type="text" name="testName" value=name style="display: none;")
+      input(type="number" name="count" value=num style="display: none;")
+      - for (var x = 1; x <= num; x++)
+        fieldset.task
+          div
+            div.form-group
+              label(for="question" + x) 
+                h6="Question "+x
+                textarea(cols="100" rows="5" name="question"+ x, class="form-control" id="question" + x, placeholder="Enter question")
+            div.form-check
+              h6 Answer
+              small(id="description" class="form-text text-muted") Enter the answers and select the correct.
+              div.answer
+                label(class="custom-control custom-radio", for="val" + x + 0)
+                  input(name="isCorrect"+x, id="val" + x + 0, value= 0, type="radio" class="custom-control-input")
+                  span.custom-control-indicator
+                  span.custom-control-description
+                    input(type="text", name="answer" + x,)
+                img(src="/icons/plus.svg", alt="add answer" class="plus addAnswer" data-num=x)
+          hr
+
+      input(type="submit" id="submit" class="btn button" value="Submit")
+  script(src="./js/addFields.js")

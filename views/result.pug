@@ -1,0 +1,13 @@
+extends layout
+
+block main
+  div.row.justify-content-center
+    div.block
+      h5 Result
+      div.result
+        p.text Correct answers
+          mark= result.right
+        p.text Not correct answers
+          mark= result.notRight
+      a(href="/")
+        button.button.btn back to home

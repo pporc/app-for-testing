@@ -1,0 +1,22 @@
+extends layout
+
+block main
+  div.row.justify-content-center
+    div.list-group.col-8
+      table(class="table block shadow")
+        thead
+          tr
+            th #
+            th Name
+            th Number of questions
+            th Date
+        tbody
+          -var coount = 1;
+          for val in test
+            tr
+              th(scope="row")=coount
+              td
+                a(href='/tests/' + val.name)=val.name
+              td=val.QuestionNum
+              td=val.date
+              - coount++;

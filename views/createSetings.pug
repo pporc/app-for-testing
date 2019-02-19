@@ -1,0 +1,13 @@
+extends layout
+
+block main
+  div(class="row justify-content-center")
+    div.block.col-6.shadow
+      form(action='/create' method="get")
+        div(class="form-group")
+          label(for="inputName") Test name
+          input(type="text" class="form-control" name="name" id="inputName" placeholder="Enter name of your test" required)
+        div(class="form-group")
+          label(for="inputNum") Number of questions
+          input(type="number" class="form-control" name="num" id="inputNum" value="3" required)
+        button(type="submit" class="btn button") Submit

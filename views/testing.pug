@@ -1,0 +1,19 @@
+extends layout
+
+block main
+  div.container
+    div.row.justify-content-center
+      form(class="col-6" action="/result", method="post")
+        each test in list
+          div.card.block.shadow.testing
+            div.card-header= test.name
+            div.card-body
+              p.lead= test.question
+              each val in test.answer
+                label(class="custom-control custom-radio",for=test.name + val)
+                  input(id=test.name + val, value= val, name=test.name, type="radio" class="custom-control-input")
+                  span.custom-control-indicator
+                  span.custom-control-description= val
+        div.row.justify-content-center
+          input(type="submit", class="btn btn-lg button", value="submit")
+      
